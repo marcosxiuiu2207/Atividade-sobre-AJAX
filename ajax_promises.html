@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX com Promises</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Exemplo com Promises</h1>
+  <button onclick="carregar()">Carregar Dados</button>
+  <pre id="saida"></pre>
+
+  <script>
+    function requisicao() {
+      return fetch('api.json').then(res => res.json());
+    }
+
+    function carregar() {
+      requisicao()
+        .then(data => document.getElementById('saida').textContent = JSON.stringify(data, null, 2))
+        .catch(err => console.error(err));
+    }
+    function requisicao() {
+  return fetch("api.json").then(res => res.json());
+}
+requisicao().then(console.log);
+
+  </script>
+</body>
+</html>

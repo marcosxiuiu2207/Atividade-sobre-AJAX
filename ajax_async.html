@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX com Async/Await</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Exemplo com Async/Await</h1>
+  <button onclick="carregar()">Carregar Dados</button>
+  <pre id="saida"></pre>
+
+  <script>
+    async function carregar() {
+      try {
+        const resposta = await fetch('api.json');
+        const dados = await resposta.json();
+        document.getElementById('saida').textContent = JSON.stringify(dados, null, 2);
+      } catch (erro) {
+        console.error(erro);
+      }
+    }
+    async function carregar() {
+  const resposta = await fetch("api.json");
+  const dados = await resposta.json();
+  console.log(dados);
+}
+carregar();
+
+  </script>
+</body>
+</html>

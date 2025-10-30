@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX com Fetch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Exemplo com Fetch</h1>
+  <button onclick="carregar()">Carregar Dados</button>
+  <pre id="saida"></pre>
+
+  <script>
+    function carregar() {
+      fetch('api.json')
+        .then(res => res.json())
+        .then(data => document.getElementById('saida').textContent = JSON.stringify(data, null, 2))
+        .catch(err => console.error(err));
+    }
+    fetch("api.json")
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+  </script>
+</body>
+</html>
